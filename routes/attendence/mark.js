@@ -31,7 +31,7 @@ router.post("/", async (req, res) => {
       remarks,
     };
 
-    res.status(201).json({ message: "✅ Attendance marked successfully", attendance: newAttendance });
+    res.status(201).json({ message: " Attendance marked successfully", attendance: newAttendance });
   } catch (error) {
     console.error("Error marking attendance:", error);
     res.status(500).json({ error: "Failed to mark attendance" });

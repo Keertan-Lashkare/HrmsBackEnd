@@ -4,7 +4,6 @@ import db from "../../db/db.js";
 
 const router = express.Router();
 
-// ✅ Get all attendance records with employee details
 router.get("/", async (req, res) => {
   try {
     const [records] = await db.execute(`

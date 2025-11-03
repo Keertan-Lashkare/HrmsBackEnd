@@ -3,7 +3,6 @@ import db from "../../db/db.js";
 
 const router = express.Router();
 
-// ✅ Search Attendance by Date Range
 router.post("/search", async (req, res) => {
   try {
     const { startDate, endDate, employeeId } = req.body;

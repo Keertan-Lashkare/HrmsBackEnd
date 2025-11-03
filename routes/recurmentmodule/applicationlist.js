@@ -3,7 +3,6 @@ import pool from "../../db/db.js";
 
 const router = express.Router();
 
-// ✅ GET /applications — Fetch all applications with job details
 router.get("/", async (req, res) => {
   try {
     const [applications] = await pool.query(`
@@ -25,11 +24,11 @@ router.get("/", async (req, res) => {
     `);
 
     res.json({
-      message: "✅ Applications fetched successfully",
+      message: "Applications fetched successfully",
       applications,
     });
   } catch (error) {
-    console.error("❌ Error fetching applications:", error);
+    console.error(" Error fetching applications:", error);
     res.status(500).json({ error: "Failed to fetch applications" });
   }
 });

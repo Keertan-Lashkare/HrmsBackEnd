@@ -5,7 +5,6 @@ const router = express.Router();
 
 
 
-// ✅ Get all job posts
 router.get("/", async (req, res) => {
   try {
     const [jobs] = await pool.query("SELECT * FROM recruitment ORDER BY postedBy DESC");

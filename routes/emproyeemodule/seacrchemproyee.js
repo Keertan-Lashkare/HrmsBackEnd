@@ -4,7 +4,6 @@ import db from "../../db/db.js";
 
 const router = express.Router();
 
-// ✅ Search employees by name, email, phone, department, or designation
 router.get("/", async (req, res) => {
   try {
     const { query } = req.query;
@@ -34,7 +33,7 @@ router.get("/", async (req, res) => {
 
     res.json(employees);
   } catch (error) {
-    console.error("❌ Error searching employees:", error);
+    console.error(" Error searching employees:", error);
     res.status(500).json({ error: "Failed to search employees" });
   }
 });

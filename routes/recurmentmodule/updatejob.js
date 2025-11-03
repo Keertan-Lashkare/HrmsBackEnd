@@ -4,7 +4,6 @@ import pool from "../../db/db.js";
 const router = express.Router();
 
 
-// ✅ Update Job Details
 router.put("/jobs/:id", async (req, res) => {
   try {
     const { id } = req.params;
@@ -18,7 +17,6 @@ router.put("/jobs/:id", async (req, res) => {
       status,
     } = req.body;
 
-    // Update job details
     const [result] = await pool.query(
       `UPDATE recruitments 
        SET jobTitle = ?, department = ?, jobType = ?, description = ?, requirements = ?, location = ?, status = ?
@@ -30,7 +28,6 @@ router.put("/jobs/:id", async (req, res) => {
       return res.status(404).json({ error: "Job not found" });
     }
 
-    // Fetch updated job
     const [updatedJob] = await pool.query(
       "SELECT * FROM recruitments WHERE id = ?",
       [id]

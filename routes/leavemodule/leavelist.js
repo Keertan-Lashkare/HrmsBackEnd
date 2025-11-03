@@ -3,10 +3,8 @@ import db from "../../db/db.js";
 
 const router = express.Router();
 
-// ✅ Get All Leave Requests (with employee details)
 router.get("/", async (req, res) => {
   try {
-    // Join leaves with employees to get name, email, department
     const [leaves] = await db.execute(`
       SELECT 
         leaves.id,
@@ -27,7 +25,7 @@ router.get("/", async (req, res) => {
 
     res.json(leaves);
   } catch (error) {
-    console.error("❌ Error fetching leaves:", error);
+    console.error(" Error fetching leaves:", error);
     res.status(500).json({ error: "Failed to fetch leave requests" });
   }
 });

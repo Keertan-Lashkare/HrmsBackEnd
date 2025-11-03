@@ -5,13 +5,11 @@ const router = express.Router();
 
 
 
-// ✅ Update Application Status
 router.put("/:id/:status", async (req, res) => {
   try {
     const { id } = req.params;
     const { status } = req.body;
 
-    // Update the application status
     const [result] = await pool.query(
       "UPDATE applications SET status = ? WHERE id = ?",
       [status, id]
@@ -21,7 +19,6 @@ router.put("/:id/:status", async (req, res) => {
       return res.status(404).json({ error: "Application not found" });
     }
 
-    // Fetch updated record
     const [updatedApp] = await pool.query(
       "SELECT * FROM applications WHERE id = ?",
       [id]

@@ -3,7 +3,6 @@ import db from "../../db/db.js";
 
 const router = express.Router();
 
-// ✅ Add New Employee
 router.post("/", async (req, res) => {
   try {
     const {
@@ -37,11 +36,11 @@ router.post("/", async (req, res) => {
     ]);
 
     res.status(201).json({
-      message: "✅ Employee added successfully",
+      message: " Employee added successfully",
       employeeId: result.insertId,
     });
   } catch (error) {
-    console.error("❌ Error adding employee:", error);
+    console.error(" Error adding employee:", error);
     res.status(500).json({ error: "Failed to add employee" });
   }
 });

@@ -3,7 +3,6 @@ import db from "../../db/db.js";
 
 const router = express.Router();
 
-// ✅ Update Employee by ID
 router.put("/:id", async (req, res) => {
   try {
     const { id } = req.params;
@@ -19,7 +18,6 @@ router.put("/:id", async (req, res) => {
       joiningDate,
     } = req.body;
 
-    // ✅ Convert ISO string -> YYYY-MM-DD (for MySQL DATE column)
     const formattedDate = joiningDate
       ? new Date(joiningDate).toISOString().split("T")[0]
       : null;
@@ -49,7 +47,7 @@ router.put("/:id", async (req, res) => {
 
     res.json({ message: "Employee updated successfully" });
   } catch (error) {
-    console.error("❌ Error updating employee:", error);
+    console.error(" Error updating employee:", error);
     res.status(500).json({ error: "Failed to update employee" });
   }
 });

@@ -5,7 +5,6 @@ const router = express.Router();
 
 
 
-// ✅ Apply for Job (Submit Application)
 router.post("/", async (req, res) => {
   try {
     const { jobId, employeeId, name, email, resume, status } = req.body;
@@ -17,7 +16,7 @@ router.post("/", async (req, res) => {
     );
 
     res.status(201).json({
-      message: "✅ Application submitted successfully",
+      message: " Application submitted successfully",
       application: { id: result.insertId, jobId, employeeId, name, email, resume, status: status || "Pending" },
     });
   } catch (error) {
